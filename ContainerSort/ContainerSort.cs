@@ -38,6 +38,8 @@ namespace ContainerSort
         public static ConfigEntry<bool> modEnabled;
         public static ConfigEntry<bool> hudMessageEnabled;
         public static ConfigEntry<string> hudMessageText;
+        public static ConfigEntry<bool> effectFeedbackEnabled;
+        public static ConfigEntry<bool> audioFeedbackEnabled;
 
         public static bool ignoreUpdate = false;
 
@@ -58,6 +60,8 @@ namespace ContainerSort
             range = this.Config.Bind<int>("General", "range", 14, new ConfigDescription("Range within which containers will participate in resources arrangement.", new AcceptableValueRange<int>(5, 99), Array.Empty<object>()));
             hudMessageEnabled = this.Config.Bind<bool>("General", "hudMessageEnabled", true, "Enables hud message indicating that item was routed & placed to some other chest");
             hudMessageText = this.Config.Bind<string>("General", "hudMessageText", "Routed to another Chest", "HUD message consists of Icon, item-name plus this text.");
+            effectFeedbackEnabled = this.Config.Bind<bool>("General", "effectFeedbackEnabled", true, "Enables highlighting of end-target chests where items have been transferred.");
+            audioFeedbackEnabled = this.Config.Bind<bool>("General", "audioFeedbackEnabled", true, "Enables playing of sound on successful items transfer");
 
             ContainersTracker.Init();
             //this.Config.SettingChanged((EventHandler<SettingChangedEventArgs>)HandleConfigUpdate);

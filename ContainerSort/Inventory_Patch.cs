@@ -46,7 +46,7 @@ namespace ContainerSort
 					Logger.LogWarning("Inventory Rearrange 2");
 
 					__result = true;
-					//Mod.PlayEffect(Mod.audioFeedbackEnabled.get_Value(), "sfx_lootspawn", Player.m_localPlayer.GetCenterPoint());
+					Mod.PlayEffect(Mod.audioFeedbackEnabled.Value, "sfx_imp_fireball_launch", Player.m_localPlayer.GetCenterPoint());
 				}
 			}
 			else if (__instance.CountItems(item.m_shared.m_name) == item.m_stack && TryAddToNearBy(item))
@@ -54,7 +54,7 @@ namespace ContainerSort
 				Logger.LogWarning("Inventory Remove 1");
 
 				__instance.RemoveItem(item);
-				//Mod.PlayEffect(Mod.audioFeedbackEnabled.get_Value(), "sfx_lootspawn", Player.m_localPlayer.GetCenterPoint());
+				Mod.PlayEffect(Mod.audioFeedbackEnabled.Value, "sfx_imp_fireball_launch", Player.m_localPlayer.GetCenterPoint());
 			}
 			Logger.LogWarning("Inventory CountItems: " + __instance.CountItems(item.m_shared.m_name.ToString()));
 			Logger.LogWarning("Inventory Stack: " + item.m_stack.ToString());
@@ -111,7 +111,7 @@ namespace ContainerSort
 					{
 						MessageHud.instance.QueueUnlockMsg(item.GetIcon(), item.m_shared.m_name, Mod.hudMessageText.Value);
 					}
-					//Mod.PlayEffect(Mod.effectFeedbackEnabled.get_Value(), "vfx_Potion_health_medium", ((Component)targetContainer).get_transform().get_position());
+					Mod.PlayEffect(Mod.effectFeedbackEnabled.Value, "vfx_WishbonePing", targetContainer.transform.position);
 				}
 				return num;
 			}
